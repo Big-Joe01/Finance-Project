@@ -7,7 +7,7 @@ const CURRENCY_FREAKS_KEY =
   console.log("CurrencyFreaks Key:", CURRENCY_FREAKS_KEY);
 
 const BASE_URL = `https://api.marketaux.com/v1/news/all?language=en&api_token=${API_KEY}`;
-const EXCHANGE_RATE_URL =   `https://api.currencyfreaks.com/v2.0/rates/latest?apikey=${CURRENCY_FREAKS_KEY}`;;
+const EXCHANGE_RATE_URL =   `https://api.currencyfreaks.com/v2.0/rates/latest?apikey=${CURRENCY_FREAKS_KEY}`;
 
 export const getFinanceNews = async () => {
   try {

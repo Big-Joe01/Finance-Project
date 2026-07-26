@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from '../components/ThemeContext';
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -18,7 +18,7 @@ const ChangePassword = ({ navigation }) => {
       <SafeAreaView>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-            <Icon name="chevron-back-outline" size={28} color={theme.text} />
+            <Ionicons name="chevron-back-outline" size={28} color={theme.text} />
           </TouchableOpacity>
           <Text style={[styles.title, { color: theme.text }]}>Change password</Text>
         </View>

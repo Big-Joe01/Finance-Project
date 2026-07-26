@@ -14,7 +14,7 @@ import InterestRateImage from "../../assets/images/interestRate.svg";
 import ExchangeRateImage from "../../assets/images/exchangeRate.svg";
 import ExchangeImage from "../../assets/images/exchange.svg";
 import { useNavigation } from "@react-navigation/native";
-const SettingsScreen = () => {
+const SearchScreen = () => {
 
   const navigation = useNavigation();
 
@@ -159,4 +159,4 @@ cardDescription: {
 },
 })
 
-export default SettingsScreen
+export default SearchScreen

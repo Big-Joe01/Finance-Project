@@ -11,19 +11,24 @@ import { auth, db } from "../config/firebase";
 
 // Fallback mock data used whenever Firestore returns 0 items or loses network
 
-export const fetchTransferContacts = async () => {
-    return [
-        {
+const FALLBACK_CONTACTS = [
+    {
         id: "1",
         name: "Jane Cooper",
         cardNumber: "3246 •••• •••• 3422",
         avatar:
             "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
-        },
-    ];
-    };
+    },
+    {
+        id: "2",
+        name: "Michael Chen",
+        cardNumber: "5678 •••• •••• 9012",
+        avatar:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+    },
+];
 
-    const FALLBACK_TRANSACTIONS = [
+const FALLBACK_TRANSACTIONS = [
     {
         id: "1",
         title: "Water Bill",
@@ -42,7 +47,7 @@ export const fetchTransferContacts = async () => {
         isExpense: false,
         icon: "wallet-outline",
         iconBg: "#2EC4B6",
-        createdAt: new Date(Date.now() - 86400000).toISOString(), // Yesterday
+        createdAt: new Date(Date.now() - 86400000).toISOString(),
     },
     {
         id: "3",
@@ -52,11 +57,34 @@ export const fetchTransferContacts = async () => {
         isExpense: true,
         icon: "cart-outline",
         iconBg: "#FFB703",
-        createdAt: new Date(Date.now() - 86400000 * 2).toISOString(), // 2 days ago
+        createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
     },
-    ];
+];
 
-    export const fetchContacts = async () => {
+export const fetchTransferContacts = async () => {
+    return [
+        {
+        id: "1",
+        name: "Jane Cooper",
+        cardNumber: "3246 •••• •••• 3422",
+        avatar:
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+        },
+    ];
+};
+
+export const fetchUserData = async () => {
+    // Mock data for user dashboard
+    return {
+        greetingName: "Gega",
+        cardHolder: "Gega Smith",
+        tier: "Premium",
+        cardNumber: "•••• •••• •••• 3456",
+        balance: 12540.75,
+    };
+};
+
+export const fetchContacts = async () => {
     try {
         const currentUser = auth?.currentUser;
 
@@ -80,12 +108,12 @@ export const fetchTransferContacts = async () => {
         console.error("Error fetching contacts, using fallback:", error);
         return FALLBACK_CONTACTS;
     }
-    };
+};
 
-    /**
-     * Fetch dynamic transaction report
-     */
-    export const fetchTransactionReport = async () => {
+/**
+ * Fetch dynamic transaction report
+ */
+export const fetchTransactionReport = async () => {
     try {
         const currentUser = auth?.currentUser;
 
@@ -131,12 +159,12 @@ export const fetchTransferContacts = async () => {
         );
         return FALLBACK_TRANSACTIONS;
     }
-    };
+};
 
-    /**
-     * Fetch dynamic user profile details
-     */
-    export const fetchUserProfile = async () => {
+/**
+ * Fetch dynamic user profile details
+ */
+export const fetchUserProfile = async () => {
     try {
         const currentUser = auth?.currentUser;
         if (!currentUser) {
