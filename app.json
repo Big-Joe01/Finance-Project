@@ -3,25 +3,40 @@
     "name": "finance-app",
     "slug": "finance-app",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.financeapp"
+    },
     "android": {
-      "package": "com.anonymous.financeapp",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
       },
-      "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyBROC3OHJ-m9-AayvtKcEIbrV1x7O8vzyU"
-        }
-      }
+      "package": "com.anonymous.financeapp"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font",
       "expo-localization",
-      "expo-sharing",
-      "expo-status-bar"
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Finance App to access your camera."
+        }
+      ]
     ]
   }
 }
