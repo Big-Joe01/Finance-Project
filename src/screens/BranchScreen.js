@@ -6,12 +6,19 @@ import {
   TextInput,
   Linking,
   FlatList,
+  Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
-import MapView, { Marker } from "react-native-maps";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+
+// Use mock on web, real maps on native
+const isWeb = Platform.OS === 'web';
+const MapComponents = isWeb 
+  ? require('../components/MapsMock') 
+  : require('react-native-maps');
+const { MapView, Marker } = MapComponents;
 
 
 const branches = [
@@ -85,7 +92,7 @@ const BranchScreen = () => {
 
   const navigation = useNavigation();
 
-  const mapRef = React.useRef(null);
+  const mapRef = isWeb ? null : React.useRef(null);
 
   const [search, setSearch] = useState("");
 
@@ -145,11 +152,10 @@ const BranchScreen = () => {
         setRegion(newRegion);
 
 
-        // move map camera
-        mapRef.current?.animateToRegion(
-          newRegion,
-          1000
-        );
+        // move map camera (only on native)
+        if (!isWeb && mapRef.current?.animateToRegion) {
+          mapRef.current?.animateToRegion(newRegion, 1000);
+        }
 
 
         setSearchedLocation({
