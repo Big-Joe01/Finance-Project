@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, Modal, Linking } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Ionicons } from "@expo/vector-icons";
 
 const SupportModal = ({ visible, onClose }) => {
 
@@ -28,13 +28,13 @@ const SupportModal = ({ visible, onClose }) => {
           {/* WhatsApp Option */}
           <TouchableOpacity style={styles.optionContainer} onPress={openWhatsApp}>
             <Text style={styles.optionText}>Chat on WhatsApp</Text>
-            <Icon name="logo-whatsapp" size={24} color="#25D366" />
+            <Ionicons name="logo-whatsapp" size={24} color="#25D366" />
           </TouchableOpacity>
 
           {/* Email Option */}
           <TouchableOpacity style={styles.optionContainer} onPress={openEmail}>
             <Text style={styles.optionText}>Send an Email</Text>
-            <Icon name="mail-outline" size={24} color="#4B0082" />
+            <Ionicons name="mail-outline" size={24} color="#4B0082" />
           </TouchableOpacity>
 
           {/* Cancel/Close Button */}
@@ -60,7 +60,7 @@ const SettingsScreen = ({ navigation }) => {
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Icon name="chevron-back-outline" size={28} color="#000" />
+            <Ionicons name="chevron-back-outline" size={28} color="#000" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Setting</Text>
         </View>
@@ -80,7 +80,7 @@ const SettingsScreen = ({ navigation }) => {
           onPress={() => navigation.navigate('ChangePassword')}
         >
           <Text style={styles.itemText}>Password</Text>
-          <Icon name="chevron-forward-outline" size={20} color="#ccc" />
+          <Ionicons name="chevron-forward-outline" size={20} color="#ccc" />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -88,7 +88,7 @@ const SettingsScreen = ({ navigation }) => {
           onPress={() => navigation.navigate('AppInfo')} // Directly navigate to the screen
         >
           <Text style={styles.itemText}>App Information</Text>
-          <Icon name="chevron-forward-outline" size={20} color="#ccc" />
+          <Ionicons name="chevron-forward-outline" size={20} color="#ccc" />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -98,7 +98,7 @@ const SettingsScreen = ({ navigation }) => {
           <View style={styles.itemLabelContainer}>
             <Text style={styles.itemText}>Customer Care</Text>
           </View>
-          <Icon name="chevron-forward-outline" size={20} color="#ccc" />
+          <Ionicons name="chevron-forward-outline" size={20} color="#ccc" />
         </TouchableOpacity>
 
         {/* Put the modal component at the bottom of your render function */}
