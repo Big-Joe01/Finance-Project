@@ -15,10 +15,16 @@ import { useNavigation } from "@react-navigation/native";
 
 // Use mock on web, real maps on native
 const isWeb = Platform.OS === 'web';
-const MapComponents = isWeb 
-  ? require('../components/MapsMock') 
-  : require('react-native-maps');
-const { MapView, Marker } = MapComponents;
+let MapView, Marker;
+if (isWeb) {
+  const Mock = require('../components/MapsMock');
+  MapView = Mock.MapView;
+  Marker = Mock.Marker;
+} else {
+  const Maps = require('react-native-maps');
+  MapView = Maps.MapView;
+  Marker = Maps.Marker;
+}
 
 
 const branches = [

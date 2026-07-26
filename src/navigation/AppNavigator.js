@@ -1,6 +1,7 @@
 // AppNavigator.js
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Platform } from "react-native";
 
 // Navigation
 import TabNavigator from "./TabNavigator";
@@ -49,8 +50,10 @@ import CardsScreen from "../screens/CardsScreen";
 import CreateCardScreen from "../screens/CreateCardScreen";
 import ExchangeScreen from "../screens/ExchangeScreen";
 import ExchangeRateScreen from "../screens/ExchangeRateScreen";
-import BranchScreen from "../screens/BranchScreen";
 import InterestRateScreen from "../screens/InterestRateScreen";
+
+// Branch screen - platform-specific file will be auto-selected
+import BranchScreen from "../screens/BranchScreen";
 
 const Stack = createNativeStackNavigator();
 
